@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quiz Radioativo</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <h1>Quiz Radioativo</h1>
+
+  <form action="/submit" method="post">
+    <label for="nome">Nome:</label>
+    <input type="text" name="nome" id="nome" required />
+
+    <label for="ra">RA (se não tiver, deixe em branco)</label>
+    <input type="text" name="ra" id="ra" />
+
+    <br /><br />
+
+    {% for pergunta in perguntas %}
+      {% set i = loop.index0 %}
+      <fieldset class="pergunta">
+        <legend>{{ pergunta.pergunta }}</legend>
+
+        <input type="hidden" name="pergunta_texto_{{ i }}" value="{{ pergunta.pergunta }}" />
+
+        {% for opcao in pergunta.opcoes %}
+          <label>
+            <input type="radio" name="pergunta_{{ i }}" value="{{ opcao }}" required />
+            {{ opcao }}
+          </label><br />
+        {% endfor %}
+      </fieldset>
+      <br />
+    {% endfor %}
+
+    <button type="submit">Enviar</button>
+  </form>
+</body>
+</html>

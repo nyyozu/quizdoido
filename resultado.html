@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <title>Resultado do Quiz</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container resultado">
+        <h1>Obrigado por participar, {{ nome }}!</h1>
+        <p>Seu percentual de acerto foi: <strong>{{ percentual }}%</strong></p>
+        
+        {% if premio %}
+            <p class="premio">🎉 Parabéns! Você ganhou o prêmio! 🎉</p>
+        {% else %}
+            <p>Infelizmente, você não atingiu o mínimo de 3 acertos para ganhar o prêmio. Tente novamente!</p>
+        {% endif %}
+
+        <a href="/" class="botao-voltar">Fazer outro quiz</a>
+    </div>
+</body>
+</html>
