@@ -1,0 +1,6 @@
+CREATE TABLE resultados (
+    id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    nome TEXT NOT NULL,
+    ra TEXT,
+    percentual_acerto REAL NOT NULL
+);
