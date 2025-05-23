@@ -4,3 +4,6 @@ CREATE TABLE resultados (
     ra TEXT,
     percentual_acerto REAL NOT NULL
 );
+
+
+cria a porra da pasta do template e o static, html no template, css no static fi
